@@ -11,7 +11,6 @@ miraiz-website/
 │   ├── css/style.css                 … スタイル（MIRAIZロゴから採色したカラーパレット）
 │   ├── js/main.js                    … ドロワー、スクロール演出、フォーム送信
 │   └── img/                          … 画像一式（提供PDFから抽出・Web用に最適化）
-├── .github/workflows/deploy-pages.yml … GitHub Pages への自動公開
 ├── robots.txt                        … 開校前は検索エンジンをブロック（公開時に削除）
 ├── .nojekyll                         … GitHub Pages で Jekyll 処理を無効化
 └── README.md
@@ -79,7 +78,7 @@ const FALLBACK_MAIL_TO = 'info@example.com';   // ← 受信用メールアド�
 
 - **レンタルサーバー**：このディレクトリの中身をドキュメントルートにアップロード
 - **Netlify / Vercel / Cloudflare Pages**：このディレクトリを公開ディレクトリに指定（ビルドコマンドなし）
-- **GitHub Pages**：下記の通り、`.github/workflows/deploy-pages.yml` で自動公開されます
+- **GitHub Pages**：下記の通り、`main` ブランチから直接公開されます
 
 ローカルで確認する場合：
 
@@ -90,12 +89,16 @@ python3 -m http.server 8000
 
 ### GitHub Pages で関係者に共有する
 
-この一式を**公開リポジトリのルート**に置いて `main` へ push すると、
-`.github/workflows/deploy-pages.yml` が走って `https://<ユーザー名>.github.io/<リポジトリ名>/` で公開されます。
-Pages機能が未設定でも、ワークフローが初回に自動で有効化します。
+この一式を**公開リポジトリのルート**に置いて `main` へ push し、
+リポジトリの **Settings → Pages → Source** で「Deploy from a branch」を選び、
+`main` / `/ (root)` を指定して Save すると、
+`https://<ユーザー名>.github.io/<リポジトリ名>/` で公開されます。
 
-うまく動かない場合は手動でも設定できます：
-リポジトリの **Settings → Pages → Source** で「Deploy from a branch」を選び、`main` / `/ (root)` を指定。
+以降は `main` に push するだけで自動的に反映されます（1〜2分）。
+
+GitHub Actions を使う方法もありますが、Pages機能の初回有効化にはリポジトリ管理者の権限が必要で、
+アプリ連携経由のpushでは `Resource not accessible by integration` で失敗します。
+静的サイトならブランチ公開のほうが構成がシンプルなので、こちらを採用しています。
 
 **注意：業務ファイルが入っているプライベートリポジトリを公開設定に変えないでください。**
 サイト専用の公開リポジトリを分けて運用してください。
