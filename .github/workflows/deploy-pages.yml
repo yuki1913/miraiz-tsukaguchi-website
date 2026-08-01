@@ -1,0 +1,41 @@
+# main へ push すると GitHub Pages に自動で公開されます。
+# 初回実行時に Pages 機能も自動で有効化されます（enablement: true）。
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 公開処理は同時に1つだけ走らせる
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pages の設定（未設定なら有効化）
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: サイトをアップロード
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: 公開
+        id: deploy
+        uses: actions/deploy-pages@v4
