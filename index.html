@@ -31,7 +31,7 @@
   "@type": "School",
   "name": "フリースクール MIRAIZ 阪急塚口校",
   "alternateName": "MIRAIZ（ミライズ）",
-  "description": "小学生・中学生を対象としたフリースクール。学び直しと探究型学習（マイプロジェクト）を、地元の大学生スタッフとともに行います。",
+  "description": "小学1年生から中学3年生を対象としたフリースクール。学び直しと探究型学習（マイプロジェクト）を、地元の大学生スタッフとともに行います。",
   "url": "https://example.com/",
   "logo": "assets/img/logo-miraiz.png",
   "image": "assets/img/og-image.jpg",
@@ -105,7 +105,7 @@
         さぁ、フリースクール MIRAIZ で始めよう。
       </p>
       <ul class="hero__points">
-        <li>小学生・中学生対象</li>
+        <li>小学1年〜中学3年対象</li>
         <li>神戸大学の学生が伴走</li>
         <li>基礎からの学び直しOK</li>
       </ul>
@@ -422,22 +422,59 @@
     </div>
 
     <h3 class="slash-head">開校日・開校時間</h3>
-    <div class="hours">
-      <div class="hours__card hours__card--1">
-        <p class="hours__label">1部</p>
-        <p class="hours__time">10:00〜12:00</p>
-        <p class="hours__for">小学生クラス</p>
-      </div>
-      <div class="hours__card hours__card--2">
-        <p class="hours__label">2部</p>
-        <p class="hours__time">13:00〜15:00</p>
-        <p class="hours__for">中学生クラス</p>
-      </div>
-      <div class="hours__meta">
-        <p><b>開校日</b>：月曜日〜金曜日（祝日・長期休業日等を除く）</p>
-        <p><b>2部制の理由</b>：一人ひとりにしっかり向き合える少人数体制を保ち、小学生・中学生それぞれに合った内容で活動するため、時間帯を分けています。</p>
-        <p class="hours__note">※開校時間・クラス編成は予定です。決定次第、本サイトでお知らせします。</p>
-      </div>
+    <p class="hours__intro">午前は1部・2部が<strong>交代制</strong>。午後は1部・2部そろって過ごす「じぶん時間」です。</p>
+
+    <ul class="hours-parts">
+      <li class="hours-parts__item hours-parts__item--1">
+        <p class="hours-parts__name">1部</p>
+        <p class="hours-parts__grade">小学5年 〜 中学3年</p>
+        <p class="hours-parts__freq">週3回・午前（月・水・金）</p>
+      </li>
+      <li class="hours-parts__item hours-parts__item--2">
+        <p class="hours-parts__name">2部</p>
+        <p class="hours-parts__grade">小学1年 〜 4年</p>
+        <p class="hours-parts__freq">週2回・午前（火・木）</p>
+      </li>
+    </ul>
+
+    <p class="timetable-hint" aria-hidden="true">横にスクロールできます →</p>
+    <div class="timetable-wrap">
+      <table class="timetable">
+        <caption class="visually-hidden">フリースクール MIRAIZ 阪急塚口校 週間スケジュール</caption>
+        <thead>
+          <tr>
+            <th scope="col"><span class="visually-hidden">時間帯</span></th>
+            <th scope="col">月</th>
+            <th scope="col">火</th>
+            <th scope="col">水</th>
+            <th scope="col">木</th>
+            <th scope="col">金</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">10:00<br>〜12:00</th>
+            <td class="tt tt--1"><b>1部</b><span>学び直し・マイプロ</span></td>
+            <td class="tt tt--2"><b>2部</b><span>学び直し・マイプロ</span></td>
+            <td class="tt tt--1"><b>1部</b><span>学び直し・マイプロ</span></td>
+            <td class="tt tt--2"><b>2部</b><span>学び直し・マイプロ</span></td>
+            <td class="tt tt--1"><b>1部</b><span>学び直し・マイプロ</span></td>
+          </tr>
+          <tr>
+            <th scope="row">12:00<br>〜13:00</th>
+            <td class="tt tt--lunch" colspan="5">お昼休憩</td>
+          </tr>
+          <tr>
+            <th scope="row">13:00<br>〜15:00</th>
+            <td class="tt tt--mix" colspan="5"><b>1部・2部 混合</b><span>じぶん時間・アソビ時間</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="hours__meta">
+      <p><b>開校日</b>：月曜日〜金曜日（祝日・長期休業日等を除く）</p>
+      <p><b>2部制の理由</b>：一人ひとりにしっかり向き合える少人数体制を保つため、午前は学年に応じて時間帯を分けています。午後は学年をこえて一緒に過ごせる合同の時間です。</p>
     </div>
   </div>
 </section>
@@ -543,7 +580,7 @@
     <header class="sec-head">
       <p class="sec-head__eyebrow">price</p>
       <h2 class="sec-head__title">料金</h2>
-      <p class="sec-head__note">対象：小学生・中学生</p>
+      <p class="sec-head__note">対象：小学1年生〜中学3年生</p>
     </header>
 
     <div class="price">
@@ -595,7 +632,7 @@
       </details>
       <details>
         <summary>対象は何年生ですか？</summary>
-        <div class="faq__a"><p>小学生・中学生が対象です。授業内容や必要なサポートが異なるため、1部（10:00〜12:00）を小学生クラス、2部（13:00〜15:00）を中学生クラスとして時間帯を分けて活動する予定です。学年やご状況によってご相談させていただく場合があります。</p></div>
+        <div class="faq__a"><p>小学1年生から中学3年生が対象です。午前は学年に応じて2部制で、<b>1部（小学5年〜中学3年）は月・水・金の週3回</b>、<b>2部（小学1年〜4年）は火・木の週2回</b>、それぞれ10:00〜12:00に学び直しとマイプロに取り組みます。13:00〜15:00は1部・2部が合同で過ごす「じぶん時間」です。学年やご状況によってご相談させていただく場合があります。</p></div>
       </details>
       <details>
         <summary>発達の特性があっても通えますか？</summary>
@@ -733,7 +770,7 @@
         <dl class="access__dl">
           <dt>開校</dt><dd>2026年9月（予定）</dd>
           <dt>所在地</dt><dd>〒661-0012<br>兵庫県尼崎市南塚口町1丁目12-8<br><small>阪急神戸線「塚口」駅より徒歩圏内</small></dd>
-          <dt>対象</dt><dd>小学生・中学生</dd>
+          <dt>対象</dt><dd>小学1年生〜中学3年生<br><small>1部：小学5年〜中学3年（週3回）／2部：小学1年〜4年（週2回）</small></dd>
           <dt>開校日</dt><dd>月曜日〜金曜日</dd>
         </dl>
         <p><a class="btn btn--primary" href="#contact">見学・体験を申し込む</a></p>
