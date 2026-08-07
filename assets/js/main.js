@@ -10,7 +10,7 @@
      フォームの data-endpoint（index.html）が空のときは、
      入力内容を差し込んだメール作成画面を開くフォールバックで動作します。
      ------------------------------------------------------- */
-  const FALLBACK_MAIL_TO = 'sofi.highschools@gmail.com';
+  const FALLBACK_MAIL_TO = 'miraiz.tsukaguchi.info@gmail.com';
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

@@ -52,7 +52,7 @@ miraiz-website/
      提案資料の「ご相談箇所」では 10:00〜13:00／13:00〜17:00 案、A・Bコース案も併記されていたため、
      サイト上は「※開校時間・クラス編成は予定です」と注記しています。確定後に注記を削除してください。
 
-5. ~~**お問い合わせフォームの送信先**~~ → **設定済み**（`sofi.highschools@gmail.com`／下記参照）
+5. ~~**お問い合わせフォームの送信先**~~ → **設定済み**（`miraiz.tsukaguchi.info@gmail.com`／下記参照）
 
 ## お問い合わせフォームの設定
 
@@ -60,7 +60,7 @@ miraiz-website/
 宛先は `assets/js/main.js` 冒頭の定数で設定しています。
 
 ```js
-const FALLBACK_MAIL_TO = 'sofi.highschools@gmail.com';
+const FALLBACK_MAIL_TO = 'miraiz.tsukaguchi.info@gmail.com';
 ```
 
 この方式は送信者のメールソフトが立ち上がるため、**スマホやWebメール環境では送信が完了しないことがあります**。
