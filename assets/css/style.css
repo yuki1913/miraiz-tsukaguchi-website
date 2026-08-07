@@ -485,7 +485,15 @@ table{ border-collapse:collapse; }
 }
 .hours-parts__item--1{ background:var(--p-yellow); }
 .hours-parts__item--2{ background:var(--p-mint); }
-.hours-parts__name{ font-family:var(--font-round); font-weight:900; font-size:1.35rem; margin:0; }
+.hours-parts__name{
+  font-family:var(--font-round); font-weight:900; font-size:1.35rem; margin:0;
+  display:flex; align-items:center; gap:.5em; flex-wrap:wrap;
+}
+/* 「1部」「2部」はチーム名に添える番号なので、バッジにして一段小さく */
+.hours-parts__no{
+  flex:0 0 auto; padding:.15em .8em; border-radius:999px;
+  background:rgba(255,255,255,.8); font-size:.62em; letter-spacing:.04em;
+}
 .hours-parts__grade{
   font-family:var(--font-round); font-weight:700; margin:0;
   font-size:clamp(1rem,2vw,1.2rem);
