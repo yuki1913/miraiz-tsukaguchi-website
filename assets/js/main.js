@@ -62,7 +62,8 @@
     .content-card, .mypro, .table-wrap, .join-list__item, .banner-note,
     .day-col, .hours > *, .feat, .feat-center, .staff-points li,
     .support-list__item, .next-card, .next-figure, .price__card, .price__notes,
-    .flow li, .faq details, .contact__direct, .contact__form, .access
+    .flow li, .faq details, .contact__direct, .contact__form, .access,
+    .stat, .bg-intro, .prof, .think-note, .message, .company
   `);
 
   if (!reduceMotion && 'IntersectionObserver' in window) {
