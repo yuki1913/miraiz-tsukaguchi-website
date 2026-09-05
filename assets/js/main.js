@@ -63,7 +63,7 @@
     .day-col, .hours > *, .feat, .feat-center, .staff-points li,
     .support-list__item, .next-card, .next-figure, .price__card, .price__notes,
     .flow li, .faq details, .contact__direct, .contact__form, .access,
-    .stat, .bg-intro, .prof, .think-note, .message, .company
+    .stat, .bg-intro, .prof, .think-note, .message, .company, .company__stats
   `);
 
   if (!reduceMotion && 'IntersectionObserver' in window) {

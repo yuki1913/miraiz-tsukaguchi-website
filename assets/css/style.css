@@ -965,15 +965,23 @@ table{ border-collapse:collapse; }
    運営母体
    ========================================================= */
 .company{
-  display:grid; grid-template-columns:minmax(0,300px) 1fr; gap:clamp(1.2rem,3vw,2.4rem);
+  display:grid; grid-template-columns:minmax(0,320px) 1fr; gap:clamp(1.2rem,3vw,2.4rem);
   background:var(--c-white); border-radius:var(--r-lg); box-shadow:var(--shadow);
   padding:clamp(1.4rem,3vw,2.2rem); align-items:start;
 }
-.company__stats{ display:grid; gap:.7rem; }
+.company__stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin-bottom:1.2rem; }
 .company__stats li{
   background:var(--c-tint); border-radius:var(--r-md); padding:.9rem 1.1rem;
   display:flex; align-items:baseline; gap:.5rem;
 }
+.company__profile{
+  margin:0; display:grid; grid-template-columns:auto 1fr; gap:.1rem .9rem; font-size:.92rem;
+}
+.company__profile dt{
+  font-family:var(--font-round); font-weight:700; color:var(--c-key-dk);
+  padding:.55em 0; border-bottom:1px dashed var(--c-line); white-space:nowrap;
+}
+.company__profile dd{ margin:0; padding:.55em 0; border-bottom:1px dashed var(--c-line); }
 .company__stats b{
   font-family:var(--font-round); font-weight:900; font-size:1.9rem; line-height:1; color:var(--c-key-dk);
 }
@@ -1114,6 +1122,7 @@ table{ border-collapse:collapse; }
   .feat-grid{ grid-template-columns:1fr; }
   .support-list{ grid-template-columns:1fr; }
   .worry-list li{ font-size:1rem; }
+  .company__stats{ grid-template-columns:1fr; }
   .footer__inner{ grid-template-columns:1fr; }
   .footer__nav ul{ columns:2; }
   .hero__open{ width:118px; font-size:.9rem; }
