@@ -227,6 +227,7 @@ table{ border-collapse:collapse; }
 .hero__open-y{ display:block; font-size:.9rem; }
 .hero__open-y b{ font-size:1.5em; }
 .hero__open-t{ display:block; font-size:1.02rem; margin-top:.15em; }
+.hero__open-s{ display:block; font-size:.82em; letter-spacing:-.02em; }
 
 /* =========================================================
    SECTION 共通
