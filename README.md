@@ -12,6 +12,7 @@ miraiz-website/
 │   ├── js/main.js                    … ドロワー、スクロール演出、フォーム送信
 │   └── img/                          … 画像一式（提供PDFから抽出・Web用に最適化）
 ├── robots.txt                        … 開校前は検索エンジンをブロック（公開時に削除）
+├── vercel.json                       … Vercel 用の設定（キャッシュ・セキュリティヘッダー）
 ├── .nojekyll                         … GitHub Pages で Jekyll 処理を無効化
 └── README.md
 ```
@@ -106,14 +107,38 @@ GitHub Actions を使う方法もありますが、Pages機能の初回有効化
 **注意：業務ファイルが入っているプライベートリポジトリを公開設定に変えないでください。**
 サイト専用の公開リポジトリを分けて運用してください。
 
-#### 検索エンジン対策（重要）
+### Vercel で公開する
+
+1. Vercel で **Add New → Project** からこのリポジトリをインポート
+2. **Framework Preset** は「Other」、**Build Command** と **Output Directory** は空欄のまま（ルートをそのまま配信）
+3. Deploy を押すと `https://<プロジェクト名>.vercel.app/` で公開されます
+
+以降は `main` への push で本番、その他のブランチへの push でプレビューURLが自動発行されます。
+独自ドメインは Vercel の **Settings → Domains** で追加します（GitHub Pages 用の `CNAME` ファイルは不要）。
+
+`vercel.json` では次の設定をしています。
+
+| 対象 | 設定 | 意図 |
+| --- | --- | --- |
+| `/assets/css/*`・`/assets/js/*` | `Cache-Control: public, max-age=0, must-revalidate` | 毎回サーバーに更新確認（変更なしなら 304 で軽量）。修正が即反映される |
+| `/assets/img/*` | `Cache-Control: public, max-age=86400, stale-while-revalidate=604800` | 1日キャッシュ。以後7日間は古い画像を表示しつつ裏で更新 |
+| 全ページ | `X-Content-Type-Options` / `X-Frame-Options` / `Referrer-Policy` | 基本的なセキュリティヘッダー |
+| — | `cleanUrls: true`・`trailingSlash: false` | URL末尾の `.html` や `/` を省いた形に統一 |
+
+**画像を差し替えたときの注意**：同じファイル名で上書きすると、訪問済みの人には最大1日ほど古い画像が表示されることがあります。
+すぐに反映させたい場合は、ファイル名を変える（例：`hero-2.jpg`）か、参照側に `?v=2` を付けてください。
+
+> ファイル名にハッシュが付かない構成のため、`immutable`（1年キャッシュ）は使っていません。
+> 付けると、CSS・JS・画像を修正しても訪問済みの人のブラウザに古いファイルが残り続けます。
+
+### 検索エンジン対策（重要）
 
 `robots.txt` で全クローラーをブロックしています。開校日や連絡先が未確定の状態で
 検索結果に載ってしまうのを防ぐためです。**正式公開のタイミングで `robots.txt` を削除してください。**
 
-#### 独自ドメインを使う場合
+### 独自ドメインを使う場合
 
-このディレクトリに `CNAME` というファイルを作り、中身にドメイン名だけを書いて push します（例：`miraiz-tsukaguchi.jp`）。
+（GitHub Pages の場合）このディレクトリに `CNAME` というファイルを作り、中身にドメイン名だけを書いて push します（例：`miraiz-tsukaguchi.jp`）。
 あわせて `index.html` の `canonical` と JSON-LD の `url` を実ドメインに、OGP画像を絶対URLに変更してください。
 
 ## 実装メモ
